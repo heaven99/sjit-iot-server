@@ -1,0 +1,16 @@
+# IDE
+.idea
+.vscode
+
+### macOS template
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+### Node template
+logs
+*.log
+node_modules
+
+# build
+build

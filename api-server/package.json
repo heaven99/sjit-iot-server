@@ -1,0 +1,12 @@
+{
+  "name": "bdms-script-server",
+  "version": "1.0.0",
+  "description": "BDMS Script server based on ckpouch",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_PATH=./node_modules ./ckpouch -c ckpouch.conf"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {}
+}

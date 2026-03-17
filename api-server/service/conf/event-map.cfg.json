@@ -1,0 +1,5 @@
+{
+  "event-map": [
+    { "event": "sample", "protocol": "LOAD", "script": "/scripts/sample.js" }
+  ]
+}

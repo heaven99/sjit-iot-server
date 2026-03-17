@@ -1,0 +1,3 @@
+{
+  "/api/v1/sample": { "POST": { "event": "sample", "desc": "샘플" } }
+}

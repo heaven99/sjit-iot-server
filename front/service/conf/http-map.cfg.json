@@ -1,0 +1,4 @@
+{
+    "/api/sample": { "POST": { "event": "proxy-http-ck-bearer", "desc": "API 프록시", "data": {} } },
+    "/api/v1/sample": { "POST": { "event": "proxy-http-ck-bearer", "desc": "API 프록시", "data": {} } }
+}
