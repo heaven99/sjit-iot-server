@@ -2,7 +2,7 @@ module.exports = async (ctx, src, packet) => {
     const { log, utils } = ctx;
     let lhd = `[${src}:${packet.hd.tid}] sample -`;
 
-    log.info(`${lhd} >> start sample. packet [${JSON.stringify(packet)}]`);
+    log.info(`${lhd} >> start sample. data [${JSON.stringify(packet.dt)}], session [${JSON.stringify(packet.ss)}]`);
 
     // set variables
     const output = {};
