@@ -1,0 +1,31 @@
+{
+    "apps" : [
+        {
+            "name"       : "ckpouch-front",
+            "cwd"        : "/home/ubuntu/ckpouch/ckpouch-server/front",
+            "script"     : "./ckpouch",
+            "args"       : "--trace-warnings -c ckpouch-prd.conf",
+            "env": {
+                "NODE_PATH": "./node_modules"
+            },
+            "watch"      : false,
+            "exec_mode"  : "fork",
+            "out_file"   : "/dev/null",
+            "error_file" : "/data/log/pm2/ckpouch-front-error.log"
+        },
+        {
+            "name"       : "ckpouch-api-server",
+            "cwd"        : "/home/ubuntu/ckpouch/ckpouch-server/api-server",
+            "script"     : "./ckpouch",
+            "args"       : "--trace-warnings -c ckpouch-prd.conf",
+            "env": {
+                "NODE_PATH": "./node_modules"
+            },
+            "watch"      : false,
+            "exec_mode"  : "fork",
+            "out_file"   : "/dev/null",
+            "error_file" : "/data/log/pm2/ckpouch-api-server-error.log"
+        }
+    ]
+}
+
