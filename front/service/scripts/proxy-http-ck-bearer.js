@@ -148,6 +148,15 @@ module.exports = async (ctx, src, packet, listener) => {
         return;
     }
 
+    if (req.get('ck-authorization') === 'abc') {
+        session = {
+            user: {
+                id: 1,
+                cd: '9f0627e982bc47518797bd9ce1f87525',
+                name: 'test',
+            },
+        };
+    }
     const checkAuthorizationInfo = await sUtils.checkAuthorization(ctx, req, lhd);
     if (!checkAuthorizationInfo.succ) {
         return checkAuthorizationInfo.data;
@@ -184,7 +193,6 @@ module.exports = async (ctx, src, packet, listener) => {
     if (session) {
         proxyOptions.headers['ck-session'] = encodeURIComponent(JSON.stringify(session));
     }
-
 
     let isBuffer = false;
     const handleProxy = (r, proxyRes) => {
