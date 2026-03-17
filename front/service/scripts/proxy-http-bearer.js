@@ -22,7 +22,7 @@ const sValues = {
 const sUtils = {
     checkAuthorization: async (ctx, req, lhd) => {
         const { utils, log, modules } = ctx;
-        const hAuthorization = req.get('h-authorization');
+        const hAuthorization = req.get(sValues.HEADER_KEY_AUTHORIZATION);
         let apiType = '';
         let accessToken = '';
         let signature = '';
@@ -31,6 +31,16 @@ const sUtils = {
         if (!req.get(sValues.HEADER_KEY_AUTHORIZATION)) {
             log.info(`${lhd} << failed proxy http for bearer. not found mandatory header. key [${sValues.HEADER_KEY_AUTHORIZATION}]`);
             return utils.makeResData('E0001', 'Wrong Request');
+        }
+
+        // validate deep
+        const splitAuthHeader = hAuthorization.split(' ');
+        if (splitAuthHeader.length !== 2) {
+            log.info(`${lhd} << failed proxy http for bearer. invalid ${sValues.HEADER_KEY_AUTHORIZATION}. expected [${sValues.HEADER_KEY_AUTHORIZATION}: {{apiType}} {{authData}}], actual [${req.get(sValues.HEADER_KEY_AUTHORIZATION)}]`);
+            return {
+                succ: false,
+                data: utils.makeResData('E0001', 'Wrong Request'),
+            };
         }
 
         // api type 이 안맞으면 에러
@@ -44,7 +54,7 @@ const sUtils = {
 
         const splitAuthData = splitAuthHeader[1].split(':');
         if (splitAuthData.length !== 2) {
-            log.info(`${lhd} << failed proxy http for bearer. invalid h-authorization. expected [h-authorization: {{apiType}} {{accessToken}}:{{signature}}], actual [${req.get('h-authorization')}]`);
+            log.info(`${lhd} << failed proxy http for bearer. invalid ${sValues.HEADER_KEY_AUTHORIZATION}. expected [${sValues.HEADER_KEY_AUTHORIZATION}: {{apiType}} {{accessToken}}:{{signature}}], actual [${req.get(sValues.HEADER_KEY_AUTHORIZATION)}]`);
             return {
                 succ: false,
                 data: utils.makeResData('E0001', 'Wrong Request'),
