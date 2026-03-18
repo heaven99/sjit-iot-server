@@ -1,6 +1,11 @@
 {
   "event-map": [
     {
+      "event": "hello",
+      "protocol": "LOAD",
+      "script": "/scripts/hello.js"
+    },
+    {
       "event": "insert-tags",
       "protocol": "LOAD",
       "script": "/scripts/insert-tags.js"

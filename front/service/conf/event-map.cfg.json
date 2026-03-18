@@ -1,8 +1,24 @@
 {
-    "event-map": [
-        { "event": "proxy-http-ck-open", "protocol": "LOAD", "script": "/scripts/proxy-http-ck-open.js" },
-        { "event": "proxy-http-ck-bearer", "protocol": "LOAD", "script": "/scripts/proxy-http-ck-bearer.js" },
-        { "event": "proxy-http-bearer", "protocol": "LOAD", "script": "/scripts/proxy-http-bearer.js" },
-        { "event": "example", "protocol": "LOAD", "script": "/scripts/script.example.js" }
-    ]
+  "event-map": [
+    {
+      "event": "proxy-http-ck-open",
+      "protocol": "LOAD",
+      "script": "/scripts/proxy-http-ck-open.js"
+    },
+    {
+      "event": "proxy-http-ck-bearer",
+      "protocol": "LOAD",
+      "script": "/scripts/proxy-http-ck-bearer.js"
+    },
+    {
+      "event": "proxy-http-bearer",
+      "protocol": "LOAD",
+      "script": "/scripts/proxy-http-bearer.js"
+    },
+    {
+      "event": "example",
+      "protocol": "LOAD",
+      "script": "/scripts/script.example.js"
+    }
+  ]
 }

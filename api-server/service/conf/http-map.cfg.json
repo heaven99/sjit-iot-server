@@ -1,4 +1,7 @@
 {
+  "/svc-api/v1/hello": {
+    "GET": { "event": "hello", "desc": "Hello API" }
+  },
   "/svc-api/v1/insert": {
     "POST": { "event": "insert-tags", "desc": "tags 삽입" }
   }
