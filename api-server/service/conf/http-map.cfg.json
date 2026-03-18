@@ -1,3 +1,5 @@
 {
-  "/api/v1/sample": { "POST": { "event": "sample", "desc": "샘플" } }
+  "/svc-api/v1/insert": {
+    "POST": { "event": "insert-tags", "desc": "tags 삽입" }
+  }
 }

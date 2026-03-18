@@ -1,5 +1,9 @@
 {
   "event-map": [
-    { "event": "sample", "protocol": "LOAD", "script": "/scripts/sample.js" }
+    {
+      "event": "insert-tags",
+      "protocol": "LOAD",
+      "script": "/scripts/insert-tags.js"
+    }
   ]
 }
