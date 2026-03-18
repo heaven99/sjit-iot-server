@@ -17,6 +17,8 @@ const sConf = {
 
 module.exports = async (ctx, src, packet, listener) => {
   const { conf, log, utils } = ctx;
+  // define variables
+  const { req, res } = listener;
 
   // proxy server setup from conf
   setProxyInfo(sConf, conf);
@@ -38,8 +40,6 @@ module.exports = async (ctx, src, packet, listener) => {
     return makeResData(utils, notValid.code);
   }
 
-  // define variables
-  const { req, res } = listener;
   const body = packet.dt;
   const apiKey = req.get("apiKey");
 
