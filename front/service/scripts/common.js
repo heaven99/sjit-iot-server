@@ -71,12 +71,13 @@ const hasNotValidItem = (lhd, ctx, listener) => {
   if (notValid) {
     return notValid;
   }
-  notValid = _checkApiKey(
-    lhd,
-    log,
-    listener.req.get("apiKey"),
-    conf["api-key"],
-  );
+
+  // notValid = _checkApiKey(
+  //   lhd,
+  //   log,
+  //   listener.req.get("apiKey"),
+  //   conf["api-key"],
+  // );
   if (notValid) {
     return notValid;
   }
