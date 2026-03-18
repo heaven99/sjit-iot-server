@@ -1,8 +1,8 @@
 const http = require("http");
 const https = require("https");
 const { Buffer } = require("buffer");
-const { getLhd, setProxyInfo, hasNotValidItem } = require("./common");
-const { E_CODE, makeResData } = require("./error-code");
+// const { getLhd, setProxyInfo, hasNotValidItem } = require("./common");
+// const { E_CODE, makeResData } = require("./error-code");
 
 const sValues = {
   API_TYPE_OPEN: "Open",
@@ -18,19 +18,19 @@ const sConf = {
 module.exports = async (ctx, src, packet, listener) => {
   const { conf, log, utils } = ctx;
 
-  // proxy server setup from conf
-  setProxyInfo(sConf, conf);
+  // // proxy server setup from conf
+  // setProxyInfo(sConf, conf);
 
-  // tid = SERVER-NODE-DATETIME-SEQ
-  // SEQ => 요청하는 측에서 생성하는 유닉한 ID로서 로그 용도이므로 자리수를 8자리로 고정해서 사용함.
-  // 요청하는 측에서는 1씩 증가시키고 최대 9천9백9만9천9백99까지 최대 값 다음은 다시 1부터 시작
-  // SEQ = 1 부터 시작하는 경우
-  // 1. 프로세스가 종료된 경우
-  // 2. SEQ가 최대값인 9천9백9만9천9백99인 경우 그 다음 요청 시
-  // ex : svr1-app1-202603151020301234-00000001
-  const lhd = getLhd(req.query.tid, src, "proxy-http-open");
+  // // tid = SERVER-NODE-DATETIME-SEQ
+  // // SEQ => 요청하는 측에서 생성하는 유닉한 ID로서 로그 용도이므로 자리수를 8자리로 고정해서 사용함.
+  // // 요청하는 측에서는 1씩 증가시키고 최대 9천9백9만9천9백99까지 최대 값 다음은 다시 1부터 시작
+  // // SEQ = 1 부터 시작하는 경우
+  // // 1. 프로세스가 종료된 경우
+  // // 2. SEQ가 최대값인 9천9백9만9천9백99인 경우 그 다음 요청 시
+  // // ex : svr1-app1-202603151020301234-00000001
+  // const lhd = getLhd(req.query.tid, src, "proxy-http-open");
 
-  log.info(`${lhd} >> start proxy http for open`);
+  // log.info(`${lhd} >> start proxy http for open`);
 
   return utils.makeResData("S0001", "Success", {
     message: "Hello from proxy-http-open!",

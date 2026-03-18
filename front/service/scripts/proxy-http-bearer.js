@@ -4,8 +4,7 @@ const https = require("https");
 const { Buffer } = require("buffer");
 const JwtService = require("./jwt-service.js__OLD");
 const { setProxyInfo, getLhd, hasNotValidItem } = require("./common");
-const { E_CODE, makeResData } = require("./error-code");
-const { on } = require("events");
+const { makeResData } = require("./error-code");
 
 // define base script conf, if exist in conf file use that, otherwise use default value
 const sConf = {
