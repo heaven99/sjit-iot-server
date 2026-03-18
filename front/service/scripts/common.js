@@ -11,7 +11,7 @@ const setProxyInfo = (sConf, conf) => {
 
 const getLhd = (tid, src, name) => tid || `${src}:${Date.now()} ${name} - `;
 
-export const onOptionMethod = (lhd, ctx, req, res) => {
+const onOptionMethod = (lhd, ctx, req, res) => {
   const { utils, modules, log } = ctx;
   const { values } = modules;
 
@@ -64,21 +64,24 @@ const _checkApiKey = (lhd, log, apiKey, confApiKey) => {
   return null;
 };
 
-export const hasNotValidItem = (lhd, ctx, listener) => {
+const hasNotValidItem = (lhd, ctx, listener) => {
   const { log, conf } = ctx;
 
   let notValid = _checkListener(lhd, log, listener);
   if (notValid) {
     return notValid;
   }
-  notValid = _checkApiKey(
-    lhd,
-    log,
-    listener.req.get("apiKey"),
-    conf["api-key"],
-  );
+
+  // notValid = _checkApiKey(
+  //   lhd,
+  //   log,
+  //   listener.req.get("apiKey"),
+  //   conf["api-key"],
+  // );
   if (notValid) {
     return notValid;
   }
   return null;
 };
+
+module.exports = { setProxyInfo, getLhd, onOptionMethod, hasNotValidItem };

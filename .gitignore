@@ -15,4 +15,5 @@ node_modules
 # build
 build
 
-**/ckpouch.exe
+**/app.exe
+**/log
