@@ -23,4 +23,4 @@ const makeResData = (utils, code) => {
   return utils.makeResData(error.code, error.message);
 };
 
-export { E_CODE, makeResData };
+module.exports = { E_CODE, makeResData };

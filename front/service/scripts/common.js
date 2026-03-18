@@ -1,6 +1,6 @@
 const { E_CODE } = require("./error-code");
 
-export const setProxyInfo = (sConf, conf) => {
+const setProxyInfo = (sConf, conf) => {
   // proxy server setup from conf
   sConf.PROXY_PROTOCOL = conf["api-server"].protocol || sConf.PROXY_PROTOCOL;
   sConf.PROXY_HOST = conf["api-server"].host || sConf.PROXY_HOST;
@@ -9,10 +9,9 @@ export const setProxyInfo = (sConf, conf) => {
   return sConf;
 };
 
-export const getLhd = (tid, src, name) =>
-  tid || `${src}:${Date.now()} ${name} - `;
+const getLhd = (tid, src, name) => tid || `${src}:${Date.now()} ${name} - `;
 
-export const onOptionMethod = (lhd, ctx, req, res) => {
+const onOptionMethod = (lhd, ctx, req, res) => {
   const { utils, modules, log } = ctx;
   const { values } = modules;
 
@@ -65,7 +64,7 @@ const _checkApiKey = (lhd, log, apiKey, confApiKey) => {
   return null;
 };
 
-export const hasNotValidItem = (lhd, ctx, listener) => {
+const hasNotValidItem = (lhd, ctx, listener) => {
   const { log, conf } = ctx;
 
   let notValid = _checkListener(lhd, log, listener);
@@ -83,3 +82,5 @@ export const hasNotValidItem = (lhd, ctx, listener) => {
   }
   return null;
 };
+
+module.exports = { setProxyInfo, getLhd, onOptionMethod, hasNotValidItem };
