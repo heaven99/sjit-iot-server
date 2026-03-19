@@ -17,3 +17,5 @@ build
 
 **/app.exe
 **/log
+
+**/package-lock.json
