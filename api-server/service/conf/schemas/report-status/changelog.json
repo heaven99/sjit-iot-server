@@ -1,0 +1,11 @@
+{
+  "schema_name": "report-status",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2026-03-19",
+      "description": "초기 스키마 정의",
+      "changes": []
+    }
+  ]
+}

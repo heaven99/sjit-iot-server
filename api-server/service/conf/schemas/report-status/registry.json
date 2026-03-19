@@ -1,0 +1,8 @@
+{
+  "schema_name": "report-status",
+  "active_versions": ["1.0.0"],
+  "deprecated_versions": [],
+  "fw_version_map": {
+    "1.0.x": "1.0.0"
+  }
+}

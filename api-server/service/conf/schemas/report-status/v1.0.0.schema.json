@@ -1,0 +1,127 @@
+{
+  "schema_name": "report-status",
+  "version": "1.0.0",
+  "schema": {
+    "gateway": {
+      "type": "object",
+      "role": "게이트웨이 장치 정보",
+      "fields": {
+        "gw_name": {
+          "type": "string",
+          "role": "게이트웨이 식별 이름"
+        },
+        "gw_address": {
+          "type": "string",
+          "format": "MAC",
+          "role": "게이트웨이 MAC 주소"
+        },
+        "gw_version": {
+          "type": "string",
+          "format": "semver",
+          "role": "게이트웨이 펌웨어 버전"
+        },
+        "gw_latitude": {
+          "type": "number",
+          "format": "float",
+          "role": "게이트웨이 설치 위치의 위도 좌표"
+        },
+        "gw_longitude": {
+          "type": "number",
+          "format": "float",
+          "role": "게이트웨이 설치 위치의 경도 좌표"
+        },
+        "gw_boot_time": {
+          "type": "number",
+          "format": "integer",
+          "unit": "seconds",
+          "role": "게이트웨이 부팅 후 경과 시간"
+        },
+        "gw_timestamp": {
+          "type": "number",
+          "format": "unix_timestamp",
+          "unit": "seconds",
+          "role": "데이터 생성 시각"
+        }
+      }
+    },
+    "tag_data": {
+      "type": "array",
+      "role": "수집된 태그 장치 목록",
+      "item": {
+        "common_fields": {
+          "tag_address": {
+            "type": "string",
+            "format": "MAC",
+            "role": "태그 장치 MAC 주소"
+          },
+          "tag_device_type": {
+            "type": "number",
+            "format": "integer",
+            "role": "태그 장치 종류 구분자. 값에 따라 추가 필드가 달라짐"
+          },
+          "tag_fw_version": {
+            "type": "string",
+            "format": "semver",
+            "role": "태그 펌웨어 버전"
+          },
+          "tag_deui": {
+            "type": "string",
+            "format": "MAC",
+            "role": "태그 장치 고유 식별자(Device EUI)"
+          },
+          "tag_rssi": {
+            "type": "number",
+            "format": "integer",
+            "unit": "dBm",
+            "role": "게이트웨이-태그 간 수신 신호 강도"
+          },
+          "tag_battery_voltage": {
+            "type": "number",
+            "format": "integer",
+            "unit": "mV",
+            "role": "태그 배터리 전압"
+          },
+          "tag_temperature": {
+            "type": "array",
+            "items": { "type": "number", "format": "float" },
+            "role": "수집 구간별 온도 측정값 목록"
+          },
+          "tag_activity": {
+            "type": "array",
+            "items": { "type": "number", "format": "integer" },
+            "role": "수집 구간별 활동량 측정값 목록"
+          },
+          "tag_adv_count": {
+            "type": "number",
+            "format": "integer",
+            "role": "수집 구간 내 BLE 광고 수신 횟수"
+          },
+          "tag_frame_count": {
+            "type": "number",
+            "format": "integer",
+            "role": "수집 구간 내 유효 프레임 수신 횟수"
+          }
+        },
+        "extended_fields_by_device_type": {
+          "2": {
+            "tag_rumination": {
+              "type": "array",
+              "items": { "type": "number", "format": "integer" },
+              "role": "수집 구간별 반추 행동 측정값 목록"
+            },
+            "tag_latitude": {
+              "type": "number",
+              "format": "float",
+              "role": "태그 장치의 현재 위도 좌표 (GPS)"
+            },
+            "tag_longitude": {
+              "type": "number",
+              "format": "float",
+              "role": "태그 장치의 현재 경도 좌표 (GPS)"
+            }
+          }
+        }
+      }
+    }
+  }
+}
