@@ -1,6 +1,7 @@
 // front error code definition, used for front-end error handling and display
 // so code have prefix E for error, F for front, and 4 digit number for specific error code, for example E1001 means front-end auth error code 1001
 const E_CODE = {
+  S0001: { code: "SF0001", message: "Success" },
   // request error code
   E0001: { code: "EF0001", message: "Wrong Request" },
   E0002: { code: "EF0002", message: "Not supported interface" },
@@ -18,9 +19,9 @@ const _E = (code) => {
   return E_CODE[code] || { code: "EF0000", message: "Unknown Error" };
 };
 
-const makeResData = (utils, code) => {
+const makeResData = (utils, code, data) => {
   const error = _E(code);
-  return utils.makeResData(error.code, error.message);
+  return utils.makeResData(error.code, error.message, data);
 };
 
 module.exports = { E_CODE, makeResData };

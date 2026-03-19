@@ -2,7 +2,7 @@
   "/svc-api/v1/hello": {
     "GET": { "event": "proxy-http-open", "desc": "API 프록시", "data": {} }
   },
-  "/svc-api/v1/insert": {
+  "/svc-api/v1/report-status": {
     "POST": { "event": "proxy-http-open", "desc": "API 프록시", "data": {} }
   }
 }

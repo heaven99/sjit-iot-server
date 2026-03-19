@@ -6,9 +6,9 @@
       "script": "/scripts/hello.js"
     },
     {
-      "event": "insert-tags",
+      "event": "report-status",
       "protocol": "LOAD",
-      "script": "/scripts/insert-tags.js"
+      "script": "/scripts/report-status.js"
     }
   ]
 }
